@@ -3,7 +3,7 @@
 %define eggname websocket_client
 
 Name:          python-websocket-client
-Version:       0.34.0
+Version:       0.53.0
 Release:       1
 Summary:       WebSocket client for python
 
