@@ -4,7 +4,7 @@
 
 Name:          python-websocket-client
 Version:       0.34.0
-Release:       %mkrel 4
+Release:       1
 Summary:       WebSocket client for python
 
 Group:         Development/Python
@@ -13,14 +13,16 @@ URL:           http://pypi.python.org/pypi/websocket-client
 Source0:       http://pypi.python.org/packages/source/w/%{distname}/%{eggname}-%{version}.tar.gz
 
 BuildArch:     noarch
-
+#Python2
+BuildRequires: pkgconfig(python2)
+BuildRequires: pythonegg(setuptools)
+BuildRequires: pythonegg(six)
+#Python3
 BuildRequires: pkgconfig(python)
-BuildRequires: python-setuptools
-BuildRequires: python-six
-BuildRequires: python3-devel
-BuildRequires: python3-setuptools
-BuildRequires: python3-six
-Requires:      python-six
+BuildRequires: python3egg(setuptools)
+BuildRequires: python3egg(six)
+
+Requires:      python2-six
 
 %description
 python-websocket-client module is WebSocket client for python. This
@@ -32,7 +34,7 @@ python-websocket-client supports only hybi-13.
 %package -n python3-websocket-client
 Summary:       WebSocket client for python
 Group:         Development/Python
-Requires:      python3-six
+Requires:      python-six
 
 %description -n python3-websocket-client
 python-websocket-client module is WebSocket client for python. This
@@ -47,18 +49,18 @@ python-websocket-client supports only hybi-13.
 # Remove bundled egg-info in case it exists
 rm -rf %{distname}.egg-info
 
-cp -a . %{py3dir}
+cp -a . %{pydir}
 
 %build
 %py2_build
 
-pushd %{py3dir}
-%py3_build
+pushd %{pydir}
+%py_build
 popd
 
 %install
-pushd %{py3dir}
-%py3_install
+pushd %{pydir}
+%py_install
 mv %{buildroot}/%{_bindir}/wsdump.py \
     %{buildroot}/%{_bindir}/python3-wsdump
 
