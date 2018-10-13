@@ -95,8 +95,8 @@ find %{buildroot}/%{python_sitelib} -type f -exec chmod -x {} \;
 
 
 %check
-pushd %{py3dir}
-%{__python3} setup.py test
+pushd %{pydir}
+%{__python} setup.py test
 popd
 
 %{__python2} setup.py test
