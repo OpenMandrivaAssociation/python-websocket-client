@@ -4,7 +4,7 @@
 
 Name:          python-websocket-client
 Version:       0.34.0
-Release:       1
+Release:       2
 Summary:       WebSocket client for python
 
 Group:         Development/Python
@@ -15,14 +15,14 @@ Source0:       http://pypi.python.org/packages/source/w/%{distname}/%{eggname}-%
 BuildArch:     noarch
 #Python2
 BuildRequires: pkgconfig(python2)
-BuildRequires: pythonegg(setuptools)
-BuildRequires: pythonegg(six)
+BuildRequires: python2dist(setuptools)
+BuildRequires: python2dist(six)
 #Python3
 BuildRequires: pkgconfig(python)
-BuildRequires: python3egg(setuptools)
-BuildRequires: python3egg(six)
+BuildRequires: python3dist(setuptools)
+BuildRequires: python3dist(six)
 
-Requires:      python2-six
+Requires:      python-six
 
 %description
 python-websocket-client module is WebSocket client for python. This
@@ -31,12 +31,12 @@ functions.
 
 python-websocket-client supports only hybi-13.
 
-%package -n python3-websocket-client
+%package -n python2-websocket-client
 Summary:       WebSocket client for python
 Group:         Development/Python
 Requires:      python-six
 
-%description -n python3-websocket-client
+%description -n python2-websocket-client
 python-websocket-client module is WebSocket client for python. This
 provides the low level APIs for WebSocket. All APIs are the synchronous
 functions.
@@ -62,24 +62,7 @@ popd
 pushd %{pydir}
 %py_install
 mv %{buildroot}/%{_bindir}/wsdump.py \
-    %{buildroot}/%{_bindir}/python3-wsdump
-
-# unbundle cacert
-rm %{buildroot}/%{python3_sitelib}/%{modname}/cacert.pem
-# And link in the mozilla ca
-ln -s /etc/pki/tls/cert.pem \
-    %{buildroot}/%{python3_sitelib}/%{modname}/cacert.pem
-
-# remove tests that got installed into the buildroot
-rm -rf %{buildroot}/%{python3_sitelib}/tests/
-
-# Remove executable bit from installed files.
-find %{buildroot}/%{python3_sitelib} -type f -exec chmod -x {} \;
-popd
-
-%py2_install
-mv %{buildroot}/%{_bindir}/wsdump.py \
-    %{buildroot}/%{_bindir}/wsdump
+    %{buildroot}/%{_bindir}/python2-wsdump
 
 # unbundle cacert
 rm %{buildroot}/%{python_sitelib}/%{modname}/cacert.pem
@@ -92,6 +75,23 @@ rm -rf %{buildroot}/%{python_sitelib}/tests/
 
 # Remove executable bit from installed files.
 find %{buildroot}/%{python_sitelib} -type f -exec chmod -x {} \;
+popd
+
+%py2_install
+mv %{buildroot}/%{_bindir}/wsdump.py \
+    %{buildroot}/%{_bindir}/wsdump
+
+# unbundle cacert
+rm %{buildroot}/%{python2_sitelib}/%{modname}/cacert.pem
+# And link in the mozilla ca
+ln -s /etc/pki/tls/cert.pem \
+    %{buildroot}/%{python2_sitelib}/%{modname}/cacert.pem
+
+# remove tests that got installed into the buildroot
+rm -rf %{buildroot}/%{python2_sitelib}/tests/
+
+# Remove executable bit from installed files.
+find %{buildroot}/%{python2_sitelib} -type f -exec chmod -x {} \;
 
 
 %check
@@ -105,13 +105,13 @@ popd
 %files
 %doc README.rst 
 %license LICENSE
-%{python2_sitelib}/%{modname}/
-%{python2_sitelib}/%{eggname}*%{version}*
+%{python_sitelib}/%{modname}/
+%{python_sitelib}/%{eggname}*%{version}*
 %{_bindir}/wsdump
 
-%files -n python3-websocket-client
+%files -n python2-websocket-client
 %doc README.rst 
 %license LICENSE
-%{python3_sitelib}/%{modname}/
-%{python3_sitelib}/%{eggname}*%{version}*
-%{_bindir}/python3-wsdump
+%{python2_sitelib}/%{modname}/
+%{python2_sitelib}/%{eggname}*%{version}*
+%{_bindir}/python2-wsdump
