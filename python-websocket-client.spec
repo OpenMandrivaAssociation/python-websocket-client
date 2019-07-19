@@ -65,7 +65,7 @@ mv %{buildroot}/%{_bindir}/wsdump.py \
     %{buildroot}/%{_bindir}/python2-wsdump
 
 # unbundle cacert
-rm %{buildroot}/%{python_sitelib}/%{modname}/cacert.pem
+rm -fv %{buildroot}/%{python_sitelib}/%{modname}/cacert.pem
 # And link in the mozilla ca
 ln -s /etc/pki/tls/cert.pem \
     %{buildroot}/%{python_sitelib}/%{modname}/cacert.pem
@@ -82,7 +82,7 @@ mv %{buildroot}/%{_bindir}/wsdump.py \
     %{buildroot}/%{_bindir}/wsdump
 
 # unbundle cacert
-rm %{buildroot}/%{python2_sitelib}/%{modname}/cacert.pem
+rm -fv %{buildroot}/%{python2_sitelib}/%{modname}/cacert.pem
 # And link in the mozilla ca
 ln -s /etc/pki/tls/cert.pem \
     %{buildroot}/%{python2_sitelib}/%{modname}/cacert.pem
