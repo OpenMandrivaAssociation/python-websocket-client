@@ -1,3 +1,2 @@
 sources:
-    websocket_client-0.34.0.tar.gz: 0668672dc283164beb6eb62006d2d69db516cfae
-    websocket_client-0.53.0.tar.gz: 09bd8914944646fde9d2672392579a982ea0f031
+  websocket_client-0.56.0.tar.gz: 69a2c812cd1b91959538f83ce8bbf2be65478a14
