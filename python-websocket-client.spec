@@ -4,7 +4,7 @@
 
 Name:          python-websocket-client
 Version:	0.57.0
-Release:	1
+Release:	2
 Summary:       WebSocket client for python
 
 Group:         Development/Python
@@ -23,6 +23,7 @@ BuildRequires: python3dist(setuptools)
 BuildRequires: python3dist(six)
 
 Requires:      python-six
+Requires:      python-backports.ssl_match_hostname
 
 %description
 python-websocket-client module is WebSocket client for python. This
@@ -35,6 +36,7 @@ python-websocket-client supports only hybi-13.
 Summary:       WebSocket client for python
 Group:         Development/Python
 Requires:      python-six
+Requires:      python2-backports.ssl_match_hostname
 
 %description -n python2-websocket-client
 python-websocket-client module is WebSocket client for python. This
