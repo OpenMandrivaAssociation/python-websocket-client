@@ -10,7 +10,7 @@ Summary:       WebSocket client for python
 Group:         Development/Python
 License:       LGPLv2
 URL:           http://pypi.python.org/pypi/websocket-client
-Source0:	https://pypi.python.org/packages/source/w/websocket-client/%{eggname}-%{version}.tar.gz
+Source0:	https://pypi.python.org/packages/source/w/websocket-client/%{distname}-%{version}.tar.gz
 BuildArch:     noarch
 #Python2
 BuildRequires: pkgconfig(python2)
@@ -45,7 +45,7 @@ functions.
 python-websocket-client supports only hybi-13.
 
 %prep
-%setup -q -n %{eggname}-%{version}
+%setup -q -n %{distname}-%{version}
 
 # Remove bundled egg-info in case it exists
 rm -rf %{distname}.egg-info
