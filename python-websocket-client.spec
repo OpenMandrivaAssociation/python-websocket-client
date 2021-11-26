@@ -96,14 +96,14 @@ find %{buildroot}/%{python2_sitelib} -type f -exec chmod -x {} \;
 
 
 %files
-%doc README.rst 
+%doc README.md
 %license LICENSE
 %{python_sitelib}/%{modname}/
 %{python_sitelib}/%{eggname}*%{version}*
 %{_bindir}/wsdump
 
 %files -n python2-websocket-client
-%doc README.rst 
+%doc README.md 
 %license LICENSE
 %{python2_sitelib}/%{modname}/
 %{python2_sitelib}/%{eggname}*%{version}*
