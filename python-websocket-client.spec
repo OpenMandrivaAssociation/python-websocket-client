@@ -95,14 +95,6 @@ rm -rf %{buildroot}/%{python2_sitelib}/tests/
 find %{buildroot}/%{python2_sitelib} -type f -exec chmod -x {} \;
 
 
-%check
-pushd %{pydir}
-%{__python} setup.py test
-popd
-
-%{__python2} setup.py test
-
-
 %files
 %doc README.rst 
 %license LICENSE
