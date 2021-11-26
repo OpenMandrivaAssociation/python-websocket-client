@@ -3,15 +3,14 @@
 %define eggname websocket_client
 
 Name:          python-websocket-client
-Version:    0.58.0
+Version:    1.2.1
 Release:    1
 Summary:       WebSocket client for python
 
 Group:         Development/Python
 License:       LGPLv2
 URL:           http://pypi.python.org/pypi/websocket-client
-Source0:	https://files.pythonhosted.org/packages/8b/0f/52de51b9b450ed52694208ab952d5af6ebbcbce7f166a48784095d930d8c/websocket_client-%{version}.tar.gz
-
+Source0:	https://pypi.python.org/packages/source/w/websocket-client/%{distname}-%{version}.tar.gz
 BuildArch:     noarch
 #Python2
 BuildRequires: pkgconfig(python2)
