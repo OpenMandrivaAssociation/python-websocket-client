@@ -56,4 +56,4 @@ find %{buildroot}/%{python_sitelib} -type f -exec chmod -x {} \;
 %license LICENSE
 %{python_sitelib}/%{modname}/
 %{python_sitelib}/%{eggname}*%{version}*
-#{_bindir}/wsdump*
+%{_bindir}/wsdump.py
