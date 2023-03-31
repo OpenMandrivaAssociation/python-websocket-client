@@ -4,7 +4,7 @@
 
 Name:          python-websocket-client
 Version:    1.2.1
-Release:    2
+Release:    3
 Summary:       WebSocket client for python
 
 Group:         Development/Python
