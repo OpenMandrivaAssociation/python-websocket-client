@@ -9,7 +9,7 @@ Summary:       WebSocket client for python
 
 Group:         Development/Python
 License:       LGPLv2
-URL:           http://pypi.python.org/pypi/websocket-client
+URL:           https://pypi.python.org/pypi/websocket-client
 Source0:	https://pypi.python.org/packages/source/w/websocket-client/%{distname}-%{version}.tar.gz
 BuildArch:     noarch
 
