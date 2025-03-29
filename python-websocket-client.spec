@@ -3,22 +3,25 @@
 %define eggname websocket_client
 
 Name:          python-websocket-client
-Version:    1.2.1
-Release:    3
+Version:    1.8.0
+Release:    1
 Summary:       WebSocket client for python
 
 Group:         Development/Python
 License:       LGPLv2
 URL:           https://pypi.python.org/pypi/websocket-client
-Source0:	https://pypi.python.org/packages/source/w/websocket-client/%{distname}-%{version}.tar.gz
+Source0:	https://pypi.python.org/packages/source/w/websocket-client/%{eggname}-%{version}.tar.gz
 BuildArch:     noarch
 
+BuildSystem:   python
 BuildRequires: pkgconfig(python)
-BuildRequires: python3dist(setuptools)
-BuildRequires: python3dist(six)
+BuildRequires: python%{pyver}dist(setuptools)
+BuildRequires: python%{pyver}dist(six)
 
-Requires:      python-six
-Requires:      python-backports.ssl_match_hostname
+Requires:      python%{pyver}dist(six)
+
+# This package used to be the only user of this obsolete backport
+Obsoletes:	python-backports.ssl_match_hostname
 
 %description
 python-websocket-client module is WebSocket client for python. This
@@ -27,17 +30,7 @@ functions.
 
 python-websocket-client supports only hybi-13.
 
-%prep
-%setup -q -n %{distname}-%{version}
-
-# Remove bundled egg-info in case it exists
-rm -rf %{distname}.egg-info
-
-%py_build
-
-%install
-%py_install
-
+%install -a
 # unbundle cacert
 rm -fv %{buildroot}/%{python_sitelib}/%{modname}/cacert.pem
 # And link in the mozilla ca
@@ -56,4 +49,4 @@ find %{buildroot}/%{python_sitelib} -type f -exec chmod -x {} \;
 %license LICENSE
 %{python_sitelib}/%{modname}/
 %{python_sitelib}/%{eggname}*%{version}*
-%{_bindir}/wsdump.py
+%{_bindir}/wsdump
