@@ -4,7 +4,7 @@
 
 Name:		python-websocket-client
 Version:	1.9.0
-Release:	1
+Release:	2
 Summary:	WebSocket client for python
 Group:		Development/Python
 License:	LGPL-2.0
@@ -13,7 +13,7 @@ Source0:	https://pypi.python.org/packages/source/w/websocket-client/%{oname}-%{v
 BuildSystem:	python
 BuildArch:     noarch
 BuildRequires:	pkgconfig
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(wheel)
